@@ -12,4 +12,4 @@ import turtle
 
 t = turtle.Turtle()
 
-print(t)
+print(type(t))
