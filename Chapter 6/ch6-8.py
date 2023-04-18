@@ -15,5 +15,5 @@ def areaOfCircle(r):
     """
     return math.pi*r**2
 
-area = float(input("What is the Area?: "))
+area = float(input("What is the Radius?: "))
 print(areaOfCircle(area))
