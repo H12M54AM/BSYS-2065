@@ -8,7 +8,7 @@ April 9, 2023
 
 import math
 
-def areaOfCircle(r):
+def areaOfCircle(r:float) -> float:
     """
     returns area of circle\n
     r = radius

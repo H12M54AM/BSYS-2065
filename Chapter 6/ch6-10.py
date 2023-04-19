@@ -1,5 +1,5 @@
 """
-Ch 6 Question 9 - 5 pointed Star
+Ch 6 Question 10 - 5 pointed Star
 ---
 Edward Naidoo
 BSYS-2065
