@@ -6,15 +6,6 @@ BSYS-2065
 April 25, 2023
 """
 
-# Tn = n(n+1)/2
-
-# Psuedocode
-# Get user input
-# Create function
-    # while ans > 0 or ans < num:
-        # print num, ans
-# user = int(input("What is the number?: "))
-
 def triangluar_num(n:int):
     # answer
     counter = 0

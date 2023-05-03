@@ -5,7 +5,6 @@ Edward Naidoo
 BSYS-2065
 April 24, 2023
 """
-
 import math
 
 def is_prime(n):

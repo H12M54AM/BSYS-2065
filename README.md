@@ -9,6 +9,8 @@ This repo holds all homework-related work from my BSYS-2065 course. It consists 
 * For loops
 * While loops
 
+---
+
 ## Disclaimer
 All content in this repo is uploaded for **future reference and backing up**. Some files may not be effecient and is made to illistrate what I have learned from each chapter. Understand that this repo **doesn't take Time complexity and Space compexity into account**. 
 
@@ -26,6 +28,8 @@ Used to spread my wings beyond the textbook and experiment with various of strat
 
 ### /test 
 Used to make sure modules and example code work the same way how its expected. This is more or less a free for all
+
+---
 
 ## Version
 3.11.2
