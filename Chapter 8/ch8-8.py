@@ -1,5 +1,5 @@
 """
-Ch 8 Question 8 - Convert Images to greyscale
+Ch 8 Question 8 - Convert Images to greyscale. Please have cImage within the same directory
 ---
 Edward Naidoo
 BSYS-2065
