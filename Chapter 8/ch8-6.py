@@ -6,28 +6,15 @@ BSYS-2065
 May 2, 2023
 """
 
-import turtle
 import random
+import turtle
+import math
 
-# Objects
-t1 = turtle.Turtle()
-t2 = turtle.Turtle()
-wn = turtle.Screen()
-
-# Settings
-wn.bgcolor('lightgreen')
-t1.color('darkblue')
-
-def moveRandom(t):
-    coin = random.randrange(0, 2)
-    if coin == 0:
-        t.left(random.randrange(0, 360))
-    else:
-        t.right(random.randrange(0, 360))
-
-    t.forward(50)
-
-def isInScreen(w, t):
+def isInScreen(w,t) -> bool:
+    """
+    Checks if Turtles are within the 
+    screens borders
+    """
     leftBound = - w.window_width() / 2
     rightBound = w.window_width() / 2
     topBound = w.window_height() / 2
@@ -38,39 +25,71 @@ def isInScreen(w, t):
 
     stillIn = True
     if turtleX > rightBound or turtleX < leftBound:
-        t.left(180)
+        stillIn = False
     if turtleY > topBound or turtleY < bottomBound:
-        t.left(180)
+        stillIn = False
+
     return stillIn
 
-def areColliding(t1, t2):
-    if t1.distance(t2) < 2:
-        return True
+def areColliding(t1, t2, distance) -> float:
+    """
+    Checks the distance between two turtles\n
+    Returns Float
+    """
+    turtle1x, turtle1y = t1.position()
+    turtle2x, turtle2y = t2.position()
+    distance_between = math.sqrt((turtle1x - turtle2x)**2 + (turtle1y - turtle2y)**2)
+    return distance_between < distance
+
+t1 = turtle.Turtle()
+t2 = turtle.Turtle()
+wn = turtle.Screen()
+
+t1.color('darkblue')
+
+# Moves to random position
+t1.penup()
+t2.penup()
+
+t1.goto(random.randint(-200, 200), random.randint(-200, 200))
+t2.goto(random.randint(-200, 200), random.randint(-200, 200))
+
+t1.pendown()
+t2.pendown()
+
+while isInScreen(wn,t1) and isInScreen(wn,t2) and not areColliding(t1, t2, 30):
+    """
+    Checks if turtle within the screen or colliding with 
+    each other
+    """
+    coin1 = random.randrange(0, 2)
+    coin2 = random.randrange(0, 2)
+
+    if coin1 == 0:
+        t1.left(random.randint(1, 180))
     else:
-        return False
+        t1.right(random.randint(1, 180))
 
-leftBound = -wn.window_width() / 2
-rightBound = wn.window_width() / 2
-topBound = wn.window_height() / 2
-bottomBound = -wn.window_height() / 2
+    if coin2 == 0:
+        t2.left(random.randint(1, 180))
+    else:
+        t2.right(random.randint(1, 180))
 
-t1.up()
-t1.goto(random.randrange(leftBound, rightBound),
-        random.randrange(bottomBound, topBound))
-t1.setheading(random.randrange(0, 360))
-t1.down()
+    t1.forward(50)
+    t2.forward(50)
 
-t2.up()
-t2.goto(random.randrange(leftBound, rightBound),
-        random.randrange(bottomBound, topBound))
-t2.setheading(random.randrange(0, 360))
-t2.down()
+    if not isInScreen(wn,t1):
+        t1.right(180)
+        t1.forward(50)
 
-while isInScreen(wn, t1) and isInScreen(wn, t2) and not areColliding(t1, t2):
-    moveRandom(t1)
-    moveRandom(t2)
-    if areColliding(t1, t2):
+    if not isInScreen(wn,t2):
+        t2.right(180)
+        t2.forward(50)
+
+    if areColliding(t1, t2, 30):
         t1.right(180)
         t2.right(180)
+        t1.forward(50)
+        t2.forward(50)
 
 turtle.mainloop()

@@ -1,17 +1,7 @@
-"""
-Ch 8 Question 8 - Convert Images to greyscale
----
-Edward Naidoo
-BSYS-2065
-May 3, 2023
-"""
-
 import cImage as image
 
 def grayscale(img):
-    """
-    Converts an image to grayscale.
-    """
+    """Converts an image to grayscale."""
     for row in range(img.getHeight()):
         for col in range(img.getWidth()):
             p = img.getPixel(col, row)
@@ -20,8 +10,13 @@ def grayscale(img):
             img.setPixel(col, row, new_pixel)
 
 def main():
+    # Load the gif image
     img = image.FileImage("./img/testimage.gif")
+
+    # Convert the image to grayscale
     grayscale(img)
+
+    # Save the grayscale image
     img.save("./img/testimage_gray.gif")
 
 if __name__ == "__main__":
